@@ -49,7 +49,7 @@ class GameFinishedFragment : Fragment() {
     }
 
     private fun parseArguments() {
-        requireArguments().getParcelable<GameResult>(KEY_GAME_RESULT)?.let {
+        requireArguments().getParcelable(KEY_GAME_RESULT, GameResult::class.java)?.let {
             gameResult = it
         }
     }

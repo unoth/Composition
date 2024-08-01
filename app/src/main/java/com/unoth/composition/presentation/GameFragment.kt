@@ -55,7 +55,7 @@ class GameFragment : Fragment() {
     }
 
     private fun parseArguments() {
-        requireArguments().getParcelable<Level>(KEY_LEVEL)?.let {
+        requireArguments().getParcelable(KEY_LEVEL, Level::class.java)?.let {
             level = it
         }
     }
