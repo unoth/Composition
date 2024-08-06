@@ -5,15 +5,22 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProvider
 import com.unoth.composition.R
 import com.unoth.composition.databinding.FragmentGameBinding
 import com.unoth.composition.domain.entity.GameResult
-import com.unoth.composition.domain.entity.GameSettings
 import com.unoth.composition.domain.entity.Level
 
 class GameFragment : Fragment() {
 
     private lateinit var level: Level
+
+    private val viewModel by lazy {
+        ViewModelProvider(
+            this,
+            ViewModelProvider.AndroidViewModelFactory.getInstance(requireActivity().application)
+        )[GameViewModel::class.java]
+    }
 
     private var _binding: FragmentGameBinding? = null
     private val binding: FragmentGameBinding
@@ -34,18 +41,31 @@ class GameFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        //tested
-        binding.tvSum.setOnClickListener {
-            launchGameFinishedFragment(
-                gameResult = GameResult(
-                    true,
-                    0,
-                    0,
-                    GameSettings(
-                        0, 0, 0, 0
-                    )
-                )
-            )
+        observeViewModel()
+    }
+
+    private fun observeViewModel() {
+        viewModel.question.observe(viewLifecycleOwner) {
+
+        }
+        viewModel.formattedTime.observe(viewLifecycleOwner) {
+
+        }
+
+        viewModel.percentOfRightAnswer.observe(viewLifecycleOwner) {
+
+        }
+        viewModel.minPercent.observe(viewLifecycleOwner) {
+
+        }
+        viewModel.progressAnswers.observe(viewLifecycleOwner) {
+
+        }
+        viewModel.enoughPercentAnswers.observe(viewLifecycleOwner) {
+
+        }
+        viewModel.percentOfRightAnswer.observe(viewLifecycleOwner) {
+
         }
     }
 
