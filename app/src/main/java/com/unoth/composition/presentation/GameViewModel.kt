@@ -69,6 +69,7 @@ class GameViewModel(application: Application) : AndroidViewModel(application) {
         getGameSetting(level)
         generateQuestion()
         startTimer()
+        updateProgress()
     }
 
     fun choiceAnswer(number: Int) {
@@ -153,5 +154,4 @@ class GameViewModel(application: Application) : AndroidViewModel(application) {
         private const val MILLIS_IN_SEC = 1000L
         private const val SEC_IN_MIN = 60
     }
-
 }
