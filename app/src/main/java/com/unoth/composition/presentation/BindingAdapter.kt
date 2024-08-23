@@ -4,11 +4,9 @@ package com.unoth.composition.presentation
 import android.annotation.SuppressLint
 import android.content.Context
 import android.content.res.ColorStateList
-import android.widget.AdapterView.OnItemClickListener
 import android.widget.ImageView
 import android.widget.ProgressBar
 import android.widget.TextView
-import androidx.core.content.ContentProviderCompat.requireContext
 import androidx.core.content.ContextCompat
 import androidx.databinding.BindingAdapter
 import com.unoth.composition.R
